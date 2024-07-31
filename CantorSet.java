@@ -3,7 +3,7 @@
 
 import java.util.*;
 
-public class isCantorSet {
+public class CantorSet {
     public static void main(String[] args) {
         List<int[]> sets = new ArrayList<>();
         // sets.add(null); // IAE

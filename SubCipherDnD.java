@@ -34,6 +34,7 @@ public class SubCipherDnD {
 
   public static void main(String[] args) {
     String message = "fcmhk\nabcdebfghied\nfjcdbkjkjlmnl";
+    System.out.println(message);
     
     // loop through all possibilites of mappings
     // convert the message using key
