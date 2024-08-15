@@ -9,7 +9,7 @@ public class SumPairs {
             new ListNode(5))))
         );
         
-        l = sumPair(l);
+        sumPairs(l);
         for (ListNode curr = l; curr != null; curr=curr.next) {
             System.out.println(curr.data);
         }
@@ -19,35 +19,31 @@ public class SumPairs {
     //     front = sumPair(front);
     //   }
       
-      private static ListNode sumPair(ListNode curr) {
-        if (curr == null) {
-          return null;
-        }
-        if (curr.next == null) {
-          return curr;
-        }
-        ListNode ret = new ListNode(curr.data + curr.next.data);
-        ret.next = sumPair(curr.next.next);
-        return ret;
-      }
+      // private static ListNode sumPair(ListNode curr) {
+      //   if (curr == null) {
+      //     return null;
+      //   }
+      //   if (curr.next == null) {
+      //     return curr;
+      //   }
+      //   ListNode ret = new ListNode(curr.data + curr.next.data);
+      //   ret.next = sumPair(curr.next.next);
+      //   return ret;
+      // }
       
 
-    // public static void sumPairs(LinkedNode front) {
-    //     LinkedNode curr = front;
-    //     if (curr.next != null) {
-    //       LinkedNode next = curr.next.next;
-    //       front = new LinkedNode(curr.data + curr.next.data);  
-    //       front.next = next;
-    //       // write your code here
-    //       curr = front;
-    //       while (curr.next != null && curr.next.next != null) {
-    //         next = curr.next.next.next;  
-    //         curr.next = new LinkedNode(curr.next.data + curr.next.next.data);
-    //         curr.next.next = next;
-    //         curr = curr.next;
-    //       }
-    //     }  
-    //   }
+    public static void sumPairs(ListNode front) {
+        if (front != null) {
+            if (front.next != null) {
+                front = new ListNode(front.data + front.next.data, front.next.next);
+            }
+            ListNode curr = front;
+            while (curr.next != null && curr.next.next != null) {
+                curr.next = new ListNode(curr.next.data + curr.next.next.data, curr.next.next.next);
+                curr = curr.next;
+            }
+        }
+    }
 
     private static class ListNode {
         public int data;
